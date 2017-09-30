@@ -22,7 +22,21 @@ network description into formulas and computer code.
 }
 \end{figure}
 
-
-Used~\cite{zhang2014circadian} microarray data to verify and fit the
-parameters of the numerical model.
-
+An example description of a simple two-gene, three-box network is
+represented in Figure \ref{fig:matt}, upper panel. A highly
+human-readable source code in R programming language automatically
+produces then an optimized numerical simulation framework with
+underlying low-level code for the nonlinear equations in C language
+(for performance reasons). As a next step, the unknown parameters of
+those nonlinear equations are found to fit the simulated oscillations
+(Figure \ref{fig::matt}, lower panel, right plot) to given
+experimental data (Figure \ref{fig::matt}, lower panel, left plot).
+The data used here came from~\cite{zhang2014circadian}, being a set of
+24 microarray assays collected in two hours intervals, totalling 48
+hours worth of time series length. Before fitting, the parameters of
+the $~$24 hours harmonic were extracted from the data (period,
+relative phases and relative amplitudes) and used to define the cost
+function in the fitting procedure. For the optimization procedure, the
+so-called particle swarm optimzation (see~\cite{zambrano2012hydropso})
+was used with optimized initial conditions,
+see~\cite{richards2004choosing}.
