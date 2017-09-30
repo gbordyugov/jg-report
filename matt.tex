@@ -7,19 +7,6 @@ characterized kinetic parameters of the gene regulation and hence is
 confronted with a problem of prescribing unknown values to the
 numerous numerical parameters of the model.
 
-Motivated by an earlier success of employing delay-differential
-equations to model circadian gene regulatory networks
-(see~\cite{korencic2012interplay}), we decided to make a further
-attempt to make such modelling less supervised and more data-driven.
-
-Within his masters dissertation, Matthew
-Kondoff~\cite{kondoff2015modeling} looked at a way of automatically
-generating computational models from human-readable description of
-regulatory gene networks. His efforts resulted in an R package, with
-the help of which a convenient way of numerical modeling was
-providing, thus hiding the low-level nitty-gritty of translating the
-network description into formulas and computer code.
-
 \begin{figure}
 \begin{center}
 \includegraphics[width=\linewidth]{figures/matt/matt.pdf}
@@ -34,6 +21,20 @@ network description into formulas and computer code.
 \label{fig::matt}
 }
 \end{figure}
+
+Motivated by an earlier success of employing delay-differential
+equations to model circadian gene regulatory networks
+(see~\cite{korencic2012interplay}), we decided to make a further
+attempt to make such modelling less supervised and more data-driven.
+
+Within his masters dissertation, Matthew
+Kondoff~\cite{kondoff2015modeling} looked at a way of automatically
+generating computational models from human-readable description of
+regulatory gene networks. His efforts resulted in an R package, with
+the help of which a convenient way of numerical modeling was
+providing, thus hiding the low-level nitty-gritty of translating the
+network description into formulas and computer code.
+
 
 An example description of a simple two-gene, three-box network is
 represented in Figure \ref{fig::matt}, upper panel. A highly
