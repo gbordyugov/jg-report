@@ -3,7 +3,7 @@ FIGURES  =
 
 all: $(PDFS)
 
-jg-report.pdf: jg-report.tex matt.tex jg-report.bib Makefile $(FIGURES)
+jg-report.pdf: jg-report.tex matt.tex phase.tex jg-report.bib Makefile $(FIGURES)
 
 .SUFFIXES: .tex .pdf
 
