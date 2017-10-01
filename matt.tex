@@ -3,13 +3,14 @@ common understanding of circadian rhythms is that they are mainly
 produced on the transcriptional level by gene regulatory networks,
 see~\cite{reppert2002coordination}. When building mathematical models
 of such networks, one often stumbles over the large number of poorly
-characterized kinetic parameters of the gene regulation and hence is
-confronted with a problem of prescribing unknown values to the
-numerous numerical parameters of the model. Motivated by an earlier
-success of employing delay-differential equations to model circadian
-gene regulatory networks (see~\cite{korencic2012interplay}), we
-decided to make a further attempt to make such modelling less
-supervised and more data-driven.
+characterized kinetic parameters of gene regulation (in particular,
+the parameters of transcription, translation, and post-translational
+modifications) and hence is confronted with the problem of prescribing
+nearly unknown values to the numerous parameters of the model.
+Motivated by an earlier success of employing delay-differential
+equations to model circadian gene regulatory networks
+(see~\cite{korencic2012interplay}), we decided to make a further
+attempt to make such modelling less supervised and more data-driven.
 
 
 \begin{figure}
@@ -27,22 +28,23 @@ supervised and more data-driven.
 }
 \end{figure}
 
-Within his masters dissertation, Matthew
-Kondoff~\cite{kondoff2015modeling} looked at a way of automatically
-generating computational models from human-readable description of
-regulatory gene networks. His efforts resulted in an R package, with
-the help of which a convenient way of numerical modeling was
-providing, thus hiding the low-level nitty-gritty of translating the
-network description into formulas and computer code.
+Within his masters dissertation completed at our lab at the ITB,
+Matthew Kondoff~\cite{kondoff2015modeling} looked at a way of
+automatically generating computational models from human-readable
+description of regulatory gene networks. His efforts resulted in an R
+package, with the help of which a convenient way of numerical modeling
+of gene regulatory networks was provided, thus hiding the low-level
+nitty-gritty of translating the network description into formulas and
+computer code.
 
 
 An example description of a simple two-gene, three-box network is
 represented in Figure \ref{fig::matt}, upper panel. A highly
 human-readable source code in R programming language automatically
-produces then an optimized numerical simulation framework with
-underlying low-level code for the nonlinear equations in C language
-(for performance reasons). As a next step, the unknown parameters of
-those nonlinear equations are found to fit the simulated oscillations
+produces an optimized numerical simulation scheme with underlying
+low-level code for the nonlinear equations in C language (for
+performance reasons). As a next step, the unknown parameters of those
+nonlinear equations can be found to fit the simulated oscillations
 (Figure \ref{fig::matt}, lower panel, right plot) to given
 experimental data (Figure \ref{fig::matt}, lower panel, left plot).
 The data used here came from~\cite{zhang2014circadian}, being a set of
@@ -51,15 +53,14 @@ hours worth of time series length. Before fitting, the parameters of
 the $~$24 hours harmonic were extracted from the data (period,
 relative phases and relative amplitudes) and used to define the cost
 function in the fitting procedure. For the optimization procedure, the
-so-called particle swarm optimzation (see~\cite{zambrano2012hydropso})
-was used with optimized initial conditions,
-see~\cite{richards2004choosing}.
+so-called particle swarm optimization
+(see~\cite{zambrano2012hydropso}) was used with optimized initial
+conditions, see~\cite{richards2004choosing}.
 
-Despite the fact that DDE-based modeling reduced the number of
-parameters in the mathematical model, we still ended up with some 30+
-parameter for a model with five interacting genes. Given the data we
-used and the fitting protocol (attempting to fit the period, the
-relative phases and the amplitudes), the search for parameters did not
-produced a unique set of parameters. This is to be interpreted as a
-sign for possible redundancy of the chosen model.
-
+Despite the fact that DDE-based modeling drastically reduced the
+number of parameters in the mathematical model, we still ended up with
+some 30+ parameter for a model with five interacting genes. Given the
+data we used and the fitting protocol (attempting to fit the period,
+the relative phases together with amplitudes), the search for
+parameters did not produced a unique set of parameters. This is to be
+interpreted as a sign for possible redundancy of the chosen model.
